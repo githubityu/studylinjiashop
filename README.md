@@ -1,5 +1,6 @@
 [TOC]
 #### With flutter- MVVM to achieve a very simple mall shopping project
+
 #### Project directory interface
 >├─api
 │  └─models model和viewmodel代码
