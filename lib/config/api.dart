@@ -1,7 +1,9 @@
 class API {
   // 请求的url
-  static const reqUrl = 'http://10.0.2.2:8086';
-  //static const reqUrl = 'http://192.168.1.13:8086';
+  //static const reqUrl = 'http://10.0.2.2:8086';
+
+//static const reqUrl = 'http://47.94.169.13:8086';
+ static const reqUrl = 'http://192.168.1.8:8086';
 
   //
   static const sendSmsCode = '/login/sendSmsCode';
@@ -30,6 +32,6 @@ class API {
   static const uploadBase64 = '/file/upload/base64';
   static const updatePassword = '/user/updatePassword/';
   static const updateUserName = '/user/updateUserName/';
-  //static const loginOrReg = '/user/getInfo';
+//static const loginOrReg = '/user/getInfo';
 
 }
