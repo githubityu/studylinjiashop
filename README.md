@@ -2,6 +2,9 @@
 # With flutter- MVVM to achieve a very simple mall shopping project
 #### Project directory interface
 
+![image](https://github.com/githubityu/studylinjiashop/blob/master/2222222.gif)
+
+
 ├─api
 
 │  └─models model和viewmodel代码
