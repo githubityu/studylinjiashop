@@ -2,18 +2,30 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:studylinjiashop/http/mvvms.dart';
 import 'package:studylinjiashop/routes/fluro_navigator.dart';
+import 'package:studylinjiashop/utils/app_size.dart';
 import 'package:studylinjiashop/utils/dialog_utils.dart';
+import 'package:studylinjiashop/utils/utils.dart';
 import 'package:studylinjiashop/view/custom_view.dart';
 
-abstract class BasePageState<T extends StatefulWidget> extends State<T>
+abstract class BasePageState2<T extends StatefulWidget> extends State<T>
     implements IMvvmView {
   CancelToken _cancelToken;
 
-  BasePageState() {
+  BasePageState2() {
     _cancelToken = CancelToken();
     injectViewModelView();
   }
 
+  @override
+  Widget build(BuildContext context) {
+    AppSize.init(context);
+    return Scaffold(
+      appBar: getAppBar(context),
+      body: isAutoCloseKeyboard()
+          ? hideKeyword(getBody(context), context)
+          : getBody(context),
+    );
+  }
 
   BuildContext getContext() {
     return context;
@@ -67,6 +79,10 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T>
     super.didChangeDependencies();
   }
 
+  bool isAutoCloseKeyboard() {
+    return true;
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -96,6 +112,11 @@ abstract class BasePageState<T extends StatefulWidget> extends State<T>
   CancelToken getCancelToken() {
     return _cancelToken;
   }
+
+  Widget getAppBar(BuildContext context);
+
+  Widget getBody(BuildContext context);
+
   //如果要用model与view交互就需要给viewmodle 设置view
   void injectViewModelView() {}
 }
